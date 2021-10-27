@@ -1,12 +1,14 @@
 body
   height: 100vh
+  width: 100%
 
   .progress
     cursor: pointer
     height: 8px
-    width: 200px
-    background: rgba(60, 60, 60, 0.6)
+    width: 100%
+    background: #D7D7D7
     margin: auto
+    margin-right: 2%
     border-radius: 6px
     left: 20px
     bottom: 100%
@@ -21,13 +23,39 @@ body
       height: 100%
       border-radius: 6px
       transition: all 0.1s
-
+.container
+  display: flex
+  flex-direction: row
+  h3
+    width: 20%
+  section
+    width: 80%
 header
   margin-top: 5%
+  background-color: #85929E
+  margin-left: auto
+  margin-right: auto
+  border-radius: 10px
+  width: 30%
+  padding: 2%
+
+.audiosMedia
+  &:hover
+    background-color: #7FB3D5
 .centro
   background: linear-gradient(30deg, crimson,sienna, royalblue, indianred, purple)
-  width: 80%
-  padding: 5%
+  width: 60%
+  padding: 2%
   align-items: center
   margin-top: 10%
   border-radius: 10px
+
+
+@media (max-width: 992px)
+  header
+    width: 40%
+  .centro
+    width: 80%
+@media (max-width: 772px)
+  .centro
+    width: 80%

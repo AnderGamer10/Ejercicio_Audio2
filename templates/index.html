@@ -13,25 +13,25 @@
 <body>
 <header>
     <h3 class="text-center">Audios</h3>
-    <section class="d-flex justify-content-center">
-        <button class="btn btn-light" onclick="playAudio(0)">one</button>
-        <button class="btn btn-light" onclick="playAudio(1)">two</button>
-        <button  class="btn btn-light" onclick="playAudio(2)">three</button>
-        <button class="btn btn-light" onclick="playAudio(3)">four</button>
+    <section class="d-flex justify-content-center ">
+        <button class="btn btn-light audiosMedia" onclick="playAudio(0)">AC-DC</button>
+        <button class="btn btn-light audiosMedia" onclick="playAudio(1)">Aretha</button>
+        <button  class="btn btn-light audiosMedia" onclick="playAudio(2)">Bob Marley</button>
+        <button class="btn btn-light audiosMedia" onclick="playAudio(3)">Red Hot Chili Peppers</button>
         <input id="selected" type="hidden">
     </section>
 </header>
-<div class="d-flex align-items-center">
-    <div class="d-flex container justify-content-between mx-auto text-center centro">
+<div class="d-flex  align-items-center">
+    <div class="container justify-content-between mx-auto text-center centro">
         <audio id="audio">
             <source src="../media/AC-DC.mp3" type="audio/mpeg">
         </audio>
-
         <h3 class="text-center">Controles</h3>
+        <div class="control-btn">
+            <span class="text-body time-current"></span>
+        </div>
         <section class="d-flex justify-content-center">
-            <div class="control-btn">
-                <span class="text-body time-current"></span>
-            </div>
+
             <div class="control-btn progress">
                 <div class="progress-filled"></div>
             </div>
