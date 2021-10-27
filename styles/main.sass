@@ -32,7 +32,7 @@ body
     width: 80%
 header
   margin-top: 5%
-  background-color: #85929E
+  background: linear-gradient(10deg, Khaki,sienna, SteelBlue, indianred, NavajoWhite)
   margin-left: auto
   margin-right: auto
   border-radius: 10px
@@ -43,12 +43,43 @@ header
   &:hover
     background-color: #7FB3D5
 .centro
-  background: linear-gradient(30deg, crimson,sienna, royalblue, indianred, purple)
+  background: linear-gradient(30deg, Khaki,sienna, SteelBlue, indianred, RosyBrown)
   width: 60%
   padding: 2%
   align-items: center
   margin-top: 10%
   border-radius: 10px
+
+.speed-list
+  list-style: none
+  margin: 0
+  padding: 0
+  display: flex
+  text-align: center
+
+  li
+    font-size: 1rem
+    padding: 5px
+    cursor: pointer
+
+    &:hover, &.active
+      color: #0094ff
+
+.volume-slider
+  cursor: pointer
+  height: 8px
+  width: 80px
+  background: rgba(60, 60, 60, 0.6)
+  border-radius: 6px
+
+  .volume-filled
+    background: #0094ff
+    width: 100%
+    height: 100%
+    border-radius: 6px
+    transition: width 0.2s ease-in-out
+
+
 
 
 @media (max-width: 992px)

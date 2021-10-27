@@ -58,3 +58,73 @@ audioEl.addEventListener('timeupdate', (ev) => {
     progressFill.style.width = `${audioEl.currentTime / audioEl.duration * 100}%`;
     textCurrent.textContent = `${neatTime(audioEl.currentTime)} / ${neatTime(audioEl.duration)}`;
 });
+
+
+
+
+
+const speedBtns = document.querySelectorAll('.speed-item');
+
+speedBtns.forEach(speedBtn => {
+    speedBtn.addEventListener('click', (ev) => {
+        audioEl.playbackRate = ev.target.dataset.speed;
+        speedBtns.forEach((item) => item.classList.remove('active'));
+        ev.target.classList.add('active');
+    });
+});
+
+window.addEventListener('keydown', (ev) => {
+    switch (ev.key) {
+        case ' ':
+            if (audioEl.paused) {
+                audioEl.play();
+            } else {
+                audioEl.pause();
+            }
+            break;
+        case 'ArrowRight':
+            audioEl.currentTime += 5;
+            break;
+        case 'ArrowLeft':
+            audioEl.currentTime -= 5;
+            break;
+    }
+});
+
+const volumeBtn = document.querySelector('#control-volume');
+const volumeSlider = document.querySelector('.volume-slider');
+const volumeFill = document.querySelector('.volume-filled');
+let lastVolume = 1;
+
+const syncVolume = (volume) => {
+    if (volume > 0.5) {
+        volumeBtn.textContent = 'volume_up';
+    } else if (volume < 0.5 && volume > 0) {
+        volumeBtn.textContent = 'volume_down';
+    } else if (volume === 0) {
+        volumeBtn.textContent = 'volume_mute';
+    }
+};
+
+volumeBtn.addEventListener('click', (ev) => {
+    ev.preventDefault();
+    if (audioEl.volume) {
+        lastVolume = audioEl.volume;
+        audioEl.volume = 0;
+        volumeBtn.textContent = 'volume_mute';
+        volumeFill.style.width = '0';
+    } else {
+        audioEl.volume = lastVolume;
+        syncVolume(audioEl.volume);
+        volumeFill.style.width = `${audioEl.volume * 100}%`;
+    }
+});
+
+volumeSlider.addEventListener('click', (ev) => {
+    let volume = ev.offsetX / volumeSlider.offsetWidth;
+    volume < 0.1 ? volume = 0 : volume;
+    volumeFill.style.width = `${volume * 100}%`;
+    audioEl.volume = volume;
+    syncVolume(volume);
+    lastVolume = volume;
+});
